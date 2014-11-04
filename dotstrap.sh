@@ -19,7 +19,7 @@ files=(
     # .bash_profile
     # .bash_login
     # .bash_logout
-    # .bash   # directory
+    .bash   # directory
 
     ### Vim config files
     .vimrc
