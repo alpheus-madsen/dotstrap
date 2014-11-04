@@ -1,0 +1,7 @@
+[user]
+	name = Alpheus Madsen
+	email = alpheus.madsen@gmail.com
+[core]
+	editor = vim
+[color]
+	ui = auto
