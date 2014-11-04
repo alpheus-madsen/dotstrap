@@ -1,0 +1,17 @@
+1.  [K] Menu -> "Switch to Classic Menu Style"
+
+2.  Set Caps Lock to be Ctrl.  Settings -> System Settings -> Input Devices -> Keyboard -> Advanced -> Check "Configure keyboard options", "Ctrl key position" -> "Caps Lock as Ctrl", then click "Apply".
+
+2.  Panel -> Move to left side.  Widen.
+
+3.  Desktops.  Bump up to four or six.  Set rows to 3.
+
+4.  Task Manager Settings.  Check "Only show tasks from current desktop."
+
+4.  Disable Nepomuk.  Settings -> System Settings -> Desktop Search
+
+5.  Play around with settings under Settings -> System Settings -> Power Management -> Energy Saving Settings.
+
+6.  Consider turning off effects under Settings -> System Settings -> Desktop Effects.  Be sure to remember "Ctrl-F8" (Desktop Grid) and "Alt-Shift-F12" (Toggle Desktop Effects).
+
+
