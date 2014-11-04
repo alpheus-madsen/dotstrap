@@ -19,29 +19,29 @@ files=(
     # .bash_profile
     # .bash_login
     # .bash_logout
-    # .bash/
+    # .bash   # directory
 
     ### Vim config files
     .vimrc
-    .vim/
+    .vim   # directory
 
     ### Emacs config files
     #.emacs
     #.emacs.el
-    .emacs.d/
+    .emacs.d   # directory
 
     ### Screen, tmux, git, ssh
     .screenrc
     .tmux.conf
     .gitconfig
-    .ssh/
+    .ssh   # directory
 
     ### Zsh -- I'm not quite sure if I'll be taking the plunge!
     # .zshrc
     # .zshenv
     # .zprofile
     # .zlogin
-    # .zsh/
+    # .zsh   # directory
 )
 
 ######
