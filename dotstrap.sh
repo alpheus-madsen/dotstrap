@@ -23,7 +23,10 @@ files=(
 
     ### Vim config files
     .vimrc
-    .vim   # directory
+    ## Note that .vim is automatically generated and filled;
+    ## it is likely that we will not put any config info in
+    ## this directory
+    # .vim   # directory
 
     ### Emacs config files
     #.emacs
