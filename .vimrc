@@ -21,10 +21,18 @@ call neobundle#end()
 
 " .... plugins, such as ....
 " NeoBundle "tpope/vim-unimpaired"
+NeoBundle "myusuf3/numbers.vim"  " Toggle between absolute and relative numbers.
 
 NeoBundleCheck
 filetype plugin indent on
 syntax on
+
+
+""" Settings for numbers.vim
+set number              " Turn on numbers for file
+" For some reason, <C-C> doesn't work with numbers.vim unless we directly map it to <Esc>
+nnoremap <C-C> <Esc>
+
 
 """ Personal Preferences
 " This is to ensure that direction keys work as expected
