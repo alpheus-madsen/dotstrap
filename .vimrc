@@ -25,3 +25,9 @@ call neobundle#end()
 NeoBundleCheck
 filetype plugin indent on
 syntax on
+
+""" Personal Preferences
+" This is to ensure that direction keys work as expected
+" (That is, to go up and down *visual* lines.)
+nnoremap <up> gk
+nnoremap <down> gj
