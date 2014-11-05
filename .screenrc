@@ -1,0 +1,14 @@
+### Taken from www.offensivethinking.com/data/dotfiles/screenrc
+hardstatus alwayslastline "%{=}%{G}[ %{G}%H %{g}][ Screen(s): %{w}%w %=%{kG}][ Load: %l ][ %c  %D, %d.%m.%Y ]"
+
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+
+screen -t "vim" 0
+screen -t "test" 1
+screen -t "scratch" 2
+screen -t "git" 3
+screen -t "lisp" 4
+select 0
