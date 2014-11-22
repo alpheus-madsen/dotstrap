@@ -1,0 +1,24 @@
+Change Settings:
+----------------
+
+1.  Preferences -> General -> Downloads -> "Always ask me where to save files."
+
+2.  Preferences -> General -> "When Iceweasel starts" -> "Show my windows and tabs from last time"
+
+3.  Preferences -> Security -> Uncheck "Remember passwords for sites"
+
+Check other settings to see if they are to my liking...
+
+
+
+Plugins to Install:
+-------------------
+
+Flash (technically an OS installation...flashplugin-nonfree)
+
+Add-ons -> Search "AdBlock Plus"
+
+(Consider) Add-ons -> AdBlock Plus Pop-up Addon
+
+AdBlock of some sort
+

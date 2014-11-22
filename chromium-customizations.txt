@@ -1,0 +1,24 @@
+Change Settings:
+----------------
+
+1. Settings -> Show Advanced Settings -> Downloads -> Check "Always ask me where to save files."
+
+2. Settings -> Show Advanced Settings ->  -> "Show my windows and tabs from last time"
+
+3. Settings -> On Startup -> Select "Continue where you left off"
+
+4. (Consider) Settings -> Show Advanced Settings -> System -> Uncheck "Continue running background apps when Chromium is closed"
+
+Check other settings to see if they are to my liking...
+
+
+Plugins to Install:
+-------------------
+
+Flash (technically an OS installation...and hold on to you hats, because it's a bumpy ride!  Watch out for pepperflashplugin--nonfree)
+
+Apps -> Search for "AdBlock Plus"
+
+Apps -> Search for "Clear Cache" (by Benjamin Bojko)
+
+
