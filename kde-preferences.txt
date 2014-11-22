@@ -14,4 +14,8 @@
 
 6.  Consider turning off effects under Settings -> System Settings -> Desktop Effects.  Be sure to remember "Ctrl-F8" (Desktop Grid) and "Alt-Shift-F12" (Toggle Desktop Effects).
 
+7.  Left-click clock on panel -> Digital Clock Settings -> Appearance
 
+    a. -> Check "Custom Font Color" -> Select BLACK -> Apply.
+
+    b. -> "Date Format" -> "Short Date"; [Settings] -> "Date & Time" -> "Short date format" -> "DDSHORTMONTHYY";
