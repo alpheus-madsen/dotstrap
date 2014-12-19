@@ -47,6 +47,7 @@ NeoBundle "xolox/vim-easytags"              " Automated tag generation
 """ NeoBundle "Lokaltog/vim-easymotion"     " Motion on speed...
 """ NeoBundle "vim-tmux-navigator"          " Seemless window navigation between Vim and Tmux
 NeoBundle "mbbill/undotree"                 " Undo Tree Goodness!
+NeoBundle "airblade/vim-gitgutter"          " Show Git changes on the side...
 
 NeoBundleCheck
 filetype plugin indent on
@@ -73,6 +74,10 @@ set copyindent                                     " Copy the previous indentati
 " set expandtab                                    " To turn off tabs -> ie use spaces for tabs...
                                                    " NOTE:  There are ways to do this python-specific...
 
+""" Settings for Vim-GitGutter
+let g:gitgutter_realtime = 1
+let g:gitgutter_escape_grep = 1
+let g:gitgutter_highligh_lines = 1
 
 """ Personal Preferences
 " This is to ensure that direction keys work as expected
