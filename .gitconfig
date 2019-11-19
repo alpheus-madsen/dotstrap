@@ -1,7 +1,28 @@
 [user]
 	name = Alpheus Madsen
-	email = alpheus.madsen@gmail.com
+	email = amadsen@givelify.com
 [core]
 	editor = vim
+	pager = less -x1,5 -R
+	excludesfile = /home/alpheus/.gitignore
 [color]
 	ui = auto
+[alias]
+	ignore = !git update-index --assume-unchanged
+	notice = !git update-index --no-assume-unchanged
+	list-ignored = !git ls-files -v | grep ^[a-z]
+	notice-all = !git list-ignored | awk '{print $2}' | xargs git notice
+	ln = !git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+	uno = !git status -uno
+[pager]
+	;;;; NOTE:  These settings require installing "diff-highlight".
+	;;;; This can be installed via
+	;;;;     sudo su
+	;;;;     cd /usr/bin
+	;;;;     wget https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight
+	;;;;     chmod +x diff-highlight
+	;;;; "diff-highlight" highlights individual changes in changed lines
+	diff = diff-highlight | less -RSX
+	log  = diff-highlight | less -RSX
+	show = diff-highlight | less -RSX
+

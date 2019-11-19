@@ -30,24 +30,34 @@ NeoBundle "myusuf3/numbers.vim"             " Toggle between absolute and relati
 NeoBundle "vim-scripts/Smart-Tabs"          " Smart Tab support!
 NeoBundle "tpope/vim-surround"              " For dealing with 'surroundings'!  Parens, XML, etc.
 NeoBundle "tpope/vim-repeat"                " So that . would work nicely with vim-surround
+NeoBundle "tmhedberg/matchit"               " To use % on HTML/XML, LaTeX, etc...
+NeoBundle "Townk/vim-autoclose"             " Autoclose brackets
+NeoBundle "vim-scripts/closetag.vim"        " Close HTML/XML tags with ^_
+
 """ NeoBundle "tpope/vim-speeddating"       " Adjust dates and times in a natural way...
 """ Neobundle "tpope/vim-commentary"        " Comment and Uncomment code.
 """ NeoBundle "tpope/vim-unimpaired"        " Handy bracket mappings.
 NeoBundle "vim-scripts/word_complete.vim"   " For word completion
+
 " NeoBundle "kien/ctrlp.vim"                  " For filename searching
 " NeoBundle "scrooloose/nerdtree"             " For filesystem navigating
+" 
 """ NeoBundle "scrooloose/nerdcommenter"    " Comment and Uncomment code.
 """ NeoBundle "scrooloose/syntastic"        " Syntax Checking
 """ NeoBundle "Shougo/neocomplcache.vim"    " Neo-completion with cache
 """ NeoBundle "Shougo/neocomplete.vim"      " Neo-completion with cache, requires Lua
 """ NOTE:  (tagbar, easytags) requires installing Exuberant Ctags.
+
 NeoBundle "xolox/vim-misc"                  " Miscellaneous things -- required by vim-easytags
 NeoBundle "majutsushi/tagbar"               " Class outline viewer
 NeoBundle "xolox/vim-easytags"              " Automated tag generation
+
 """ NeoBundle "Lokaltog/vim-easymotion"     " Motion on speed...
 """ NeoBundle "vim-tmux-navigator"          " Seemless window navigation between Vim and Tmux
 NeoBundle "mbbill/undotree"                 " Undo Tree Goodness!
 NeoBundle "airblade/vim-gitgutter"          " Show Git changes on the side...
+NeoBundle "tpope/vim-obsession"             " Automatically save and restore sessions!
+
 
 NeoBundleCheck
 filetype plugin indent on
@@ -101,3 +111,17 @@ set whichwrap=b,s,h,l,<,>,[,]    " Backspace and cursor keys wrap too
 set scrolljump=5                 " Lines to scroll when cursor leaves screen
 set scrolloff=3                  " Minimum lines to keep above and below cursor
 set foldenable                   " Auto fold code
+
+" I'm always setting these things anyway:
+set list                         " Show unusual whitespace
+set nowrapscan                   " Don't wrap around
+
+
+" Highilight Row and Column options
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+" Insert newlines in normal mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
