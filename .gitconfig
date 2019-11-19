@@ -22,7 +22,7 @@
 	;;;;     wget https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight
 	;;;;     chmod +x diff-highlight
 	;;;; "diff-highlight" highlights individual changes in changed lines
-	diff = diff-highlight | less -RSX
-	log  = diff-highlight | less -RSX
-	show = diff-highlight | less -RSX
+	diff = diff-so-fancy | less -RSX
+	log  = diff-so-fancy | less -RSX
+	show = diff-so-fancy | less -RSX
 

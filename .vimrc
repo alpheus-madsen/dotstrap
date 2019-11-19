@@ -19,7 +19,6 @@ if has('vim_starting')
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch "Shougo/neobundle.vim"
-call neobundle#end()
 
 """ .... plugins, such as ....
 NeoBundle "myusuf3/numbers.vim"             " Toggle between absolute and relative line numbers.
@@ -27,7 +26,7 @@ NeoBundle "myusuf3/numbers.vim"             " Toggle between absolute and relati
 """ beginning of lines, and spaces everywhere else...which isn't quite true
 """ smart-tabs...but I might have to figure out how to fix it myself...
 """ Also, it doesn't seem to respect tabstop after text (for column aligning...)
-NeoBundle "vim-scripts/Smart-Tabs"          " Smart Tab support!
+"NeoBundle "vim-scripts/Smart-Tabs"          " Smart Tab support!
 NeoBundle "tpope/vim-surround"              " For dealing with 'surroundings'!  Parens, XML, etc.
 NeoBundle "tpope/vim-repeat"                " So that . would work nicely with vim-surround
 NeoBundle "tmhedberg/matchit"               " To use % on HTML/XML, LaTeX, etc...
@@ -60,7 +59,9 @@ NeoBundle "tpope/vim-obsession"             " Automatically save and restore ses
 
 
 NeoBundleCheck
+call neobundle#end()
 filetype plugin indent on
+
 syntax on
 
 
