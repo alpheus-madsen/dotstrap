@@ -37,7 +37,20 @@ files=(
     .screenrc
     .tmux.conf
     .gitconfig
+    .myGitIgnore
     .ssh   # directory
+
+    # MySQL/PostgreSQL setting
+    .grcat
+    .my.cnf
+
+    # NixOS favorite packages; perhaps, when I get brave enough,
+    # I will replace this init script with the following file....
+    default.nix
+    configuration.nix
+
+    # Keep an eye out for the .config directory!
+    #.config
 
     ### Zsh -- I'm not quite sure if I'll be taking the plunge!
     # .zshrc
@@ -71,3 +84,9 @@ done
 # execute any files to reflect preferences...
 source ~/.bashrc
 source ~/.vimrc
+
+# To install NixOS
+#
+#     bash <(curl https://nixos.org/nix/install)
+
+

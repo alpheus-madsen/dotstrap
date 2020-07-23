@@ -158,3 +158,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# activate NixOS (if I have it!)
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+	source ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
+export NIXPROMPT="\[\e[1;31m\]{\e[1;49;33m\]nix-env\[\e[1;31m\]} $PS1"

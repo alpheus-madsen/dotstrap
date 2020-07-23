@@ -31,7 +31,8 @@ NeoBundle "tpope/vim-surround"              " For dealing with 'surroundings'!  
 NeoBundle "tpope/vim-repeat"                " So that . would work nicely with vim-surround
 NeoBundle "tmhedberg/matchit"               " To use % on HTML/XML, LaTeX, etc...
 NeoBundle "Townk/vim-autoclose"             " Autoclose brackets
-NeoBundle "vim-scripts/closetag.vim"        " Close HTML/XML tags with ^_
+"NeoBundle "vim-scripts/closetag.vim"        " Close HTML/XML tags with ^_
+NeoBundle "alvan/vim-closetag"              " Close HTML/XML tags with ^_
 
 """ NeoBundle "tpope/vim-speeddating"       " Adjust dates and times in a natural way...
 """ Neobundle "tpope/vim-commentary"        " Comment and Uncomment code.
@@ -57,6 +58,15 @@ NeoBundle "mbbill/undotree"                 " Undo Tree Goodness!
 NeoBundle "airblade/vim-gitgutter"          " Show Git changes on the side...
 NeoBundle "tpope/vim-obsession"             " Automatically save and restore sessions!
 
+NeoBundle "leafgarland/typescript-vim"      " Syntax highlighting for ts files (typescript)
+NeoBundle "ianks/vim-tsx"                   " Syntax highlighting for tsx files (ts/xml hybrids)
+NeoBundle "LnL7/vim-nix"                    " Syntax highlighting for Nix files
+
+""" NeoBundle "joker1007/vim-markdown-quote-syntax"    " Highlighting code snippets in MarkDown files
+NeoBundle "godlygeek/tabular"               " Pre-requisite for vim-markdown
+NeoBundle "plasticboy/vim-markdown"         " Syntax highlighting for markdown, including code snippets
+
+NeoBundle "mechatroner/rainbow_csv"         " To work with CSV files
 
 NeoBundleCheck
 call neobundle#end()
@@ -89,6 +99,45 @@ set copyindent                                     " Copy the previous indentati
 let g:gitgutter_realtime = 1
 let g:gitgutter_escape_grep = 1
 let g:gitgutter_highligh_lines = 1
+
+""" Settings for Vim-Markdown
+let g:vim_markdown_folding_disabled = 1
+
+
+""" Settings for alvan/vim-closetag
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
 
 """ Personal Preferences
 " This is to ensure that direction keys work as expected
