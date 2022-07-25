@@ -6,6 +6,13 @@
 ###    www.placona.com.uk/1224/linux/managing-your-dotfiles-the-right-way/
 
 
+### WARNINGS BEFORE RUNNING!
+echo "WARNING:  THIS SCRIPT REQUIRES git TO BE INSTALLED!"
+read -p "DO YOU WISH TO CONTINUE? (type \"Yes\" if you do)!  "
+if [ "$REPLY" != "Yes" ]; then
+    exit
+fi
+
 ###### Variables
 
 dir=~/.dotfiles                      # dotfiles directory
@@ -43,6 +50,7 @@ files=(
     # MySQL/PostgreSQL setting
     .grcat
     .my.cnf
+    .myclirc
 
     # NixOS favorite packages; perhaps, when I get brave enough,
     # I will replace this init script with the following file....
@@ -80,6 +88,10 @@ for file in ${files[*]}; do
     ln -s $dir/$file ~/$file
     echo
 done
+
+# Install Tmux Plugin Manager (TPM)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 
 # execute any files to reflect preferences...
 source ~/.bashrc

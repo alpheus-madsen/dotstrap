@@ -31,6 +31,8 @@ Favorite Apps
 * (ssh) (private keys should be ignored in .gitignore...)
   sl  :-)
 
+  mycli
+
   (iceweasel)
   flashplugin-nonfree
 

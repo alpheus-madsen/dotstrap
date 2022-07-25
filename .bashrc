@@ -165,3 +165,8 @@ if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
 fi
 
 export NIXPROMPT="\[\e[1;31m\]{\e[1;49;33m\]nix-env\[\e[1;31m\]} $PS1"
+
+
+
+
+

@@ -22,6 +22,9 @@ NeoBundleFetch "Shougo/neobundle.vim"
 
 """ .... plugins, such as ....
 NeoBundle "myusuf3/numbers.vim"             " Toggle between absolute and relative line numbers.
+NeoBundle "dhruvasagar/vim-zoom"            " <C-W> m for zooming in/out of split windows
+
+
 """ Smart Tabs -- NOTICE:  This DOESN'T QUITE WORK!  It uses tabs at the
 """ beginning of lines, and spaces everywhere else...which isn't quite true
 """ smart-tabs...but I might have to figure out how to fix it myself...
@@ -41,22 +44,24 @@ NeoBundle "vim-scripts/word_complete.vim"   " For word completion
 
 " NeoBundle "kien/ctrlp.vim"                  " For filename searching
 " NeoBundle "scrooloose/nerdtree"             " For filesystem navigating
-" 
+
 """ NeoBundle "scrooloose/nerdcommenter"    " Comment and Uncomment code.
 """ NeoBundle "scrooloose/syntastic"        " Syntax Checking
 """ NeoBundle "Shougo/neocomplcache.vim"    " Neo-completion with cache
 """ NeoBundle "Shougo/neocomplete.vim"      " Neo-completion with cache, requires Lua
 """ NOTE:  (tagbar, easytags) requires installing Exuberant Ctags.
 
-NeoBundle "xolox/vim-misc"                  " Miscellaneous things -- required by vim-easytags
-NeoBundle "majutsushi/tagbar"               " Class outline viewer
-NeoBundle "xolox/vim-easytags"              " Automated tag generation
+""" NeoBundle "xolox/vim-misc"                  " Miscellaneous things -- required by vim-easytags
+""" NeoBundle "majutsushi/tagbar"               " Class outline viewer
+""" NeoBundle "xolox/vim-easytags"              " Automated tag generation
 
 """ NeoBundle "Lokaltog/vim-easymotion"     " Motion on speed...
 """ NeoBundle "vim-tmux-navigator"          " Seemless window navigation between Vim and Tmux
 NeoBundle "mbbill/undotree"                 " Undo Tree Goodness!
 NeoBundle "airblade/vim-gitgutter"          " Show Git changes on the side...
 NeoBundle "tpope/vim-obsession"             " Automatically save and restore sessions!
+
+NeoBundle "christoomey/vim-tmux-navigator"  " For seamlessly using <c-{ijkl/}> for navigating vim/tmux splits
 
 NeoBundle "leafgarland/typescript-vim"      " Syntax highlighting for ts files (typescript)
 NeoBundle "ianks/vim-tsx"                   " Syntax highlighting for tsx files (ts/xml hybrids)
@@ -68,12 +73,27 @@ NeoBundle "plasticboy/vim-markdown"         " Syntax highlighting for markdown, 
 
 NeoBundle "mechatroner/rainbow_csv"         " To work with CSV files
 
+
+NeoBundle "uguu-org/vim-matrix-screensaver" " Vim Matrix 'screensaver'
+
+
+""" For folding vertical columns
+""" Unfortunately, this can overwhelm Vim; it can sometimes be useful, though...
+""" NeoBundle "google/vim-maktaba"              " Plugin dev library for foldcol
+""" NeoBundle "paulhybryant/foldcol"            " Column folding via <c-v> and :VFoldCol
+
 NeoBundleCheck
 call neobundle#end()
 filetype plugin indent on
 
 syntax on
 
+
+""" Settings for vim-zoom
+nmap <C-W>z <Plug>(zoom-toggle)
+
+""" Settings for vim-tmux-navigator
+let g:tmux_navigator_disable_when_zoomed = 1    " To prevent navigating out of Vim when zoomed in on Vim
 
 """ Settings for numbers.vim
 set number              " Turn on numbers for file
@@ -165,6 +185,9 @@ set foldenable                   " Auto fold code
 " I'm always setting these things anyway:
 set list                         " Show unusual whitespace
 set nowrapscan                   " Don't wrap around
+
+" To enable block selection even for blank/short lines
+set virtualedit+=block
 
 
 " Highilight Row and Column options
