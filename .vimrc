@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 
 """ Let's auto-install NeoBundle if it isn't already installed...
 "
@@ -103,7 +104,8 @@ nnoremap <C-C> <Esc>
 """ Settings for Smart-Tabs
 " set list       " To turn on whitespace highlighting
 " set nolist     " To turn off whitespace highlighting (the default)
-set listchars=tab:›\ ,trail:•,extends:≈,nbsp:⊡     " Highlight problematic whitespace
+" set listchars=tab:›\ ,trail:•,extends:≈,nbsp:⊡     " Highlight problematic whitespace
+set listchars=tab:\,\ ,trail:.,extends:~,nbsp:#    " Highlight problematic whitespace
 set backspace=indent,eol,start                     " Backspace settings for Insert mode
 set tabstop=3                                      " Indents of 3 spaces.
 set shiftwidth=6                                   " Column space indents of 6 spaces

@@ -2,20 +2,23 @@
 
 2.  Set Caps Lock to be Ctrl.  Settings -> System Settings -> Input Devices -> Keyboard -> Advanced -> Check "Configure keyboard options", "Ctrl key position" -> "Caps Lock as Ctrl", then click "Apply".
 
-2.  Panel -> Move to left side.  Widen.
+3.  Panel -> Move to left side.  Widen.
 
-3.  Desktops.  Bump up to four or six.  Set rows to 3.
+4.  Desktops.  Settings -> System Settings -> Workspace Behavior -> Virtual Desktops.  Bump up to four or six.  Set rows to 3.
 
-4.  Task Manager Settings.  Check "Only show tasks from current desktop."
+5.  Task Manager Settings.  Check "Only show tasks from current desktop."
 
-4.  Disable Nepomuk.  Settings -> System Settings -> Desktop Search
+5.  Disable Nepomuk.  Settings -> System Settings -> Desktop Search -> Basic Settings -> Uncheck "Enable Nepomuk Semantic Desktop".
 
-5.  Play around with settings under Settings -> System Settings -> Power Management -> Energy Saving Settings.
+6.  Play around with settings under Settings -> System Settings -> Power Management -> Energy Saving Settings.
 
-6.  Consider turning off effects under Settings -> System Settings -> Desktop Effects.  Be sure to remember "Ctrl-F8" (Desktop Grid) and "Alt-Shift-F12" (Toggle Desktop Effects).
+7.  Consider turning off effects under Settings -> System Settings -> Wokspace -> Desktop Behavior -> Desktop Effects.  Be sure to remember "Ctrl-F8" (Desktop Grid) and "Alt-Shift-F12" (Toggle Desktop Effects).
 
-7.  Left-click clock on panel -> Digital Clock Settings -> Appearance
+8.  Left-click clock on panel -> Digital Clock Settings -> Appearance
 
     a. -> Check "Custom Font Color" -> Select BLACK -> Apply.
 
     b. -> "Date Format" -> "Short Date"; [Settings] -> "Date & Time" -> "Short date format" -> "DDSHORTMONTHYY";
+
+9.  (Consider) Settings -> System Settings -> Workspace -> Window Management -> Window Behavior -> Focus -> Policy -> "Focus Follows Mouse - Mouse Precedence".
+

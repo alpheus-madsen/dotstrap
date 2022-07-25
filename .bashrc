@@ -106,7 +106,7 @@ function parse_git_dirty {
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     # PS1='\w${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]:\[\033[01;34m\]\u@\h[\033[00m\]\$ '
-    PS1="\[\e[1;36m\]\w\[\e[m\] \[\e[1;49;33m\]\`parse_git_branch\`\[\e[m\]\n\[\e[1;32m\]  <] \u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[1;32m\]\h [> \[\e[m\]\[\e[37;40m\]\\[\e[m\]"
+    PS1="cd \[\e[1;36m\]\w\[\e[m\] \[\e[1;49;33m\]\`parse_git_branch\`\[\e[m\]\n\[\e[1;32m\]  <] \u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[1;32m\]\h [> \[\e[m\]\[\e[37;40m\]\\[\e[m\]"
 
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '

@@ -22,10 +22,9 @@ alias makeup="make up && dockps"
 alias makedown="make stop && dockps"
 
 
-
 ### Job Aliases
 #alias js="jobs; echo; dirs -v;"
-alias js="jobs"
+#alias js="jobs"
 alias jf="fg"
 alias jb="bg"
 
@@ -42,10 +41,15 @@ function jk() {
     fi
 }
 
+### Job and Directory Aliases
+alias js="jobs; echo; dirs -v;"
+#alias js="jobs"
+
 # I originally tried defining these as "jN", but found
 # that I have too much of a Vim mindset for that to
 # work well.  I'm too used to typing, say, ":4b", to
 # get to the 4th buffer.
+alias 0j="fg"
 alias  j="fg"
 alias 1j="fg 1"
 alias 2j="fg 2"
@@ -94,6 +98,7 @@ alias 20jk="jk 20"
 # add a colon in front.  It *may* even be worthwhile
 # to change "j" to "b".
 alias :js="jobs"
+alias :0j="fg"
 alias  :j="fg"
 alias :1j="fg 1"
 alias :2j="fg 2"
@@ -130,8 +135,8 @@ function dp() {
 }
 
 
-#alias ds="jobs; echo; dirs -v;"
-alias ds="dirs -v"
+alias ds="jobs; echo; dirs -v;"
+#alias ds="dirs -v"
 
 function dk() {
     if [[ $# > 0 ]]; then
@@ -143,36 +148,6 @@ function dk() {
 function dp() {
     pushd $@ > /dev/null && dirs -v;
 }
-
-# I'm not entirely sure if I want to do these
-# aliases; I think it makes sense to get used to
-# thinking of "Dorectory Forth" as "d[COMMAND]".
-##alias pd="dp"
-##alias kd="dk"
-##
-### Like "Nj", found that typing "Nd" to be
-### more natural.
-##alias  d="pd"
-##alias 1d="pd +1"
-##alias 2d="pd +2"
-##alias 3d="pd +3"
-##alias 4d="pd +4"
-##alias 5d="pd +5"
-##alias 6d="pd +6"
-##alias 7d="pd +7"
-##alias 8d="pd +8"
-##alias 9d="pd +9"
-##alias 10d="pd +10"
-##alias 11d="pd +11"
-##alias 12d="pd +12"
-##alias 13d="pd +13"
-##alias 14d="pd +14"
-##alias 15d="pd +15"
-##alias 16d="pd +16"
-##alias 17d="pd +17"
-##alias 18d="pd +18"
-##alias 19d="pd +19"
-##alias 20d="pd +20"
 
 alias  d="dp"
 alias 1d="dp +1"
@@ -197,6 +172,7 @@ alias 19d="dp +19"
 alias 20d="dp +20"
 
 alias dj="jobs; echo; dirs -v;"
+alias jd="jobs; echo; dirs -v;"
 
 #function ls-jobs-dirs() {
 function lj {
@@ -351,5 +327,3 @@ alias gif="git update-index --assume-unchanged"                    # "git ignore
 alias gil="git ls-files -v | grep ^[a-z]"                          # "git list-ignored"
 alias gnf="git update-index --no-assume-unchanged"                 # "git notice"
 alias gna="git list-ignored | awk '{print $2}' | xargs git notice" # "git notice-all""
-
-

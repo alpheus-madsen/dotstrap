@@ -20,6 +20,9 @@ olddir=~/.dotfiles/default-dotfiles  # old dotfiles backup directory
 
 # list of files and folders to symlink in homedir
 files=(
+    # package settings
+    .nixpkgs
+
     ### bash config files
     .bashrc
     # .local.bash

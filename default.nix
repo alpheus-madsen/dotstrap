@@ -192,19 +192,19 @@
 # Ok, that works!  I now need to create the symbolic links for config.nix...
 {
   packageOverrides = pkgs: with pkgs; {
-    myProfile = writeText "my-profile" ''
-      export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/sbin:/bin:/usr/sbin:/usr/bin
-      export MANPATH=$HOME/.nix-profile/share/man:/nix/var/nix/profiles/default/share/man:/usr/share/man
-      export INFOPATH=$HOME/.nix-profile/share/info:/nix/var/nix/profiles/default/share/info:/usr/share/info
-    '';
+    #myProfile = writeText "my-profile" ''
+    #  export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/sbin:/bin:/usr/sbin:/usr/bin
+    #  export MANPATH=$HOME/.nix-profile/share/man:/nix/var/nix/profiles/default/share/man:/usr/share/man
+    #  export INFOPATH=$HOME/.nix-profile/share/info:/nix/var/nix/profiles/default/share/info:/usr/share/info
+    #'';
 
     myPackages = pkgs.buildEnv {
       name = "my-packages";
       paths = [
-        (runCommand "profile" {} ''
-          mkdir -p $out/etc/profile.d
-          cp ${myProfile} $out/etc/profile.d/my-profile.sh
-        '')
+        #(runCommand "profile" {} ''
+        #  mkdir -p $out/etc/profile.d
+        #  cp ${myProfile} $out/etc/profile.d/my-profile.sh
+        #'')
 
         # Customizable packages
         ##git
@@ -232,6 +232,10 @@
 
         watch
         pv
+        tetex
+
+        #obs-studio   # Maybe installed via apt
+        #font-manager
       ];
       pathsToLink = [ "/share/man" "/share/doc" "/bin" ];
       extraOutputsToInstall = [ "man" "doc" ];
