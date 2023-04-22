@@ -4,7 +4,7 @@
 
 3.  Panel -> Move to left side.  Widen.
 
-4.  Desktops.  Settings -> System Settings -> Workspace Behavior -> Virtual Desktops.  Bump up to four or six.  Set rows to 3.
+4.  Desktops.  Settings -> System Settings -> Workspace Behavior -> Virtual Desktops.  Bump up to four or six.  Set rows to 3.  Check "Show On-screen display when switching".
 
 5.  Task Manager Settings.  Check "Only show tasks from current desktop."
 
@@ -22,3 +22,4 @@
 
 9.  (Consider) Settings -> System Settings -> Workspace -> Window Management -> Window Behavior -> Focus -> Policy -> "Focus Follows Mouse - Mouse Precedence".
 
+EXPERIMENTAL:  10.  For keyboard navigation of Desktops:  Shortcuts -> Global Shortcuts -> Kwin

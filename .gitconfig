@@ -1,6 +1,6 @@
 [user]
 	name = Alpheus Madsen
-	email = amadsen@givelify.com
+	email = alpheus.madsen@gmail.com
 [core]
 	editor = vim
 	pager = less -x1,5 -R
@@ -28,3 +28,5 @@
 	log  = diff-so-fancy | less -RSX
 	show = diff-so-fancy | less -RSX
 
+[init]
+	defaultBranch = master

@@ -39,7 +39,7 @@ NeoBundle "Townk/vim-autoclose"             " Autoclose brackets
 NeoBundle "alvan/vim-closetag"              " Close HTML/XML tags with ^_
 
 """ NeoBundle "tpope/vim-speeddating"       " Adjust dates and times in a natural way...
-""" Neobundle "tpope/vim-commentary"        " Comment and Uncomment code.
+""" NeoBundle "tpope/vim-commentary"        " Comment and Uncomment code.
 """ NeoBundle "tpope/vim-unimpaired"        " Handy bracket mappings.
 NeoBundle "vim-scripts/word_complete.vim"   " For word completion
 
@@ -200,3 +200,6 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 " Insert newlines in normal mode
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+" I prefer to think of text files as markdown files:
+au BufNewFile,BufRead *.txt set filetype=markdown

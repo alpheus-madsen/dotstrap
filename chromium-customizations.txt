@@ -12,8 +12,8 @@ Change Settings:
 Check other settings to see if they are to my liking...
 
 
-Plugins to Install:
--------------------
+Plugins to Consider Installing:
+-------------------------------
 
 Flash (technically an OS installation...and hold on to you hats, because it's a bumpy ride!  Watch out for pepperflashplugin--nonfree)
 
@@ -21,4 +21,6 @@ Apps -> Search for "AdBlock Plus"
 
 Apps -> Search for "Clear Cache" (by Benjamin Bojko)
 
-
+Apps -> Search for AutoplayStopper (to stop video autoplay)
+     -> blacklist YouTube and LinkedIn
+     -> don't whitelist:  some Conferencing calls require autoplay
