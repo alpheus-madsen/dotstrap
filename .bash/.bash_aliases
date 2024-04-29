@@ -14,12 +14,18 @@ alias less="less -RSXM"
 alias bat="bat --color always"
 alias watch="watch -c"
 
-### Givelify Convenience Aliases
+### Givelify Convenience Aliases (for Docker)
 alias dockps="grc --colour=on docker ps | less -RSX"
 alias dockup="docker-compose up -d && dockps"
 alias dockdown="docker-compose down && dockps"
 alias makeup="make up && dockps"
 alias makedown="make stop && dockps"
+
+# Editor aliases
+alias :e="vim"
+alias enw="emacs -nw"  # Emacs No Windows
+alias ses="emacs -nw"  # Simple Emacs Spreadsheet Mode
+
 
 
 ### Job Aliases
@@ -42,8 +48,15 @@ function jk() {
 }
 
 ### Job and Directory Aliases
-alias js="jobs; echo; dirs -v;"
+
+## js -- show current jobs
+##
+## For convenience, the Directory stack is also shown, but it's shown first
+## so that the eye can immediately see the jobs; also, they are labeled
+## so that it could be easier to see when one list or the other is empty.
+
 #alias js="jobs"
+alias js="echo '    __dirs__'; dirs -v; echo; echo '    __jobs__'; jobs;"
 
 # I originally tried defining these as "jN", but found
 # that I have too much of a Vim mindset for that to
@@ -135,8 +148,14 @@ function dp() {
 }
 
 
-alias ds="jobs; echo; dirs -v;"
+## ds -- show current directory stack
+##
+## For convenience, current jobs is also shown, but it's shown first
+## so that the eye can immediately see the directories; also, they are labeled
+## so that it could be easier to see when one list or the other is empty.
+
 #alias ds="dirs -v"
+alias ds="echo '    __jobs__'; jobs; echo; echo '    __dirs__'; dirs -v;"
 
 function dk() {
     if [[ $# > 0 ]]; then
@@ -207,12 +226,49 @@ alias mkdir="mkdir -pv"
 ### Experimental Nix Aliases
 #alias nix-ls="ls -1 /nix/store | sort -R -t - -k 2 | less -RSXM"
 function cnix() {
-    cd $1 && nix-env;
+	cd $1 && nix-env;
+}
+
+### Job Search Helps
+
+#### mc -- make company contact
+# mc company-name position-applied source-of-opportunity
+function mc() {
+	mkdir "IN-PROGRESS--$1--$2--$3"
+	pushd "IN-PROGRESS--$1--$2--$3"  > /dev/null
+	echo
+	echo
+	echo "WELCOME TO IN-PROGRESS--$1--$2--$3 ... Remember to dk when done!"
+}
+
+#### cf -- confirm company contact
+# cf company-contact-directory
+function cf() {
+	if [ -d "$1" ]; then
+		# replace "IN-PROGRESS" with a date-and-time-stamp
+		printf -v prefix "%(%F-%H%M-%a)T" -1
+		stamping=$(echo "$1" | sed "s/^IN-PROGRESS/${prefix,,}/")
+		mv $1 $stamping
+	else
+		# Ignore non-directories
+		echo "$1 is not a directory"
+	fi
 }
 
 
 #### WARNING:  IT MAY MAKE SENSE TO PUT THESE IN A SEPARATE FILE....
-# Simple Git Aliases
+#### Simple Git Aliases
+# NOTE:  THIS CAN BE DONE SIMPLY NOW WITH `git branch --show-current`.
+#
+# This is left here both for "historical" reasons and because it's currently used
+# by the prompt.  Due to the nature of this function, however, this will *necessarily*
+# mean the branch will be highlighted in green in the promp; if I want it to be a
+# different color (for now, I don't really care), I will need to use the command
+# just above this note.
+#
+# Funny idea:  instead of (or maybe in addition to) the little markers that show
+# the current status of the branch, it might be interesting to color-code the
+# branch name itself!
 function git_branch_name() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 	echo "${BRANCH}"
@@ -287,7 +343,7 @@ alias gb="git branch"
 alias gn="git checkout -b"
 alias go="git checkout"
 alias gp="git push"
-#alias gpo="git push --set-upstream origin \`git_branch_name\`"
+alias gpo="git push --set-upstream origin $(git branch --show-current)"
 #alias gpo="git push origin HEAD"
 alias gy="git pull"
 alias gm="git merge"

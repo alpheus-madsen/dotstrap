@@ -30,7 +30,8 @@ NeoBundle "dhruvasagar/vim-zoom"            " <C-W> m for zooming in/out of spli
 """ beginning of lines, and spaces everywhere else...which isn't quite true
 """ smart-tabs...but I might have to figure out how to fix it myself...
 """ Also, it doesn't seem to respect tabstop after text (for column aligning...)
-"NeoBundle "vim-scripts/Smart-Tabs"          " Smart Tab support!
+"NeoBundle "vim-scripts/Smart-Tabs"          " Smart Tab support! (Depricated)
+NeoBundle "Thyrum/vim-stabs"                " Smart Tab support!
 NeoBundle "tpope/vim-surround"              " For dealing with 'surroundings'!  Parens, XML, etc.
 NeoBundle "tpope/vim-repeat"                " So that . would work nicely with vim-surround
 NeoBundle "tmhedberg/matchit"               " To use % on HTML/XML, LaTeX, etc...
@@ -43,8 +44,20 @@ NeoBundle "alvan/vim-closetag"              " Close HTML/XML tags with ^_
 """ NeoBundle "tpope/vim-unimpaired"        " Handy bracket mappings.
 NeoBundle "vim-scripts/word_complete.vim"   " For word completion
 
+""" File Navigation plugins; most of them augment NERDTree
 " NeoBundle "kien/ctrlp.vim"                  " For filename searching
-" NeoBundle "scrooloose/nerdtree"             " For filesystem navigating
+" NeoBundle "junegunn/fzf.vim"                " For filename searching
+
+NeoBundle "preservim/nerdtree"                      " For filesystem navigating
+NeoBundle "Xuyuanp/nerdtree-git-plugin"             " Git highlights for NERDTree
+NeoBundle "ryanoasis/vim-devicons"                  " Icons for Vim Plugins
+NeoBundle "tiagofumo/vim-nerdtree-syntax-highlight" " Syntax highlighting for files
+NeoBundle "scrooloose/nerdtree-project-plugin"      " Save NERDTree State
+NeoBundle "PhilRunninger/nerdtree-buffer-ops"       " Highilght and Close Buffers from NERDTree
+NeoBundle "PhilRunninger/nerdtree-visual-selection" " Visual Selection for NERDTree
+
+""" It would be nice to select buffers, too!
+NeoBundle "jlanzarotta/bufexplorer"                 " Visual Selection for buffers
 
 """ NeoBundle "scrooloose/nerdcommenter"    " Comment and Uncomment code.
 """ NeoBundle "scrooloose/syntastic"        " Syntax Checking
@@ -203,3 +216,7 @@ nmap <CR> o<Esc>
 
 " I prefer to think of text files as markdown files:
 au BufNewFile,BufRead *.txt set filetype=markdown
+
+" Both 'ls' and 'buffers' list current buffers, but it's far more natural
+" to abbreviate 'buffers' as 'bs' and not as 'ls'.  Hence...
+cnoreabbrev bs buffers

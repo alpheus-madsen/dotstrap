@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+	"xterm-color" | "xterm-256color")    color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -103,13 +103,34 @@ function parse_git_dirty {
 	fi
 }
 
-if [ "$color_prompt" = yes ]; then
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    # PS1='\w${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]:\[\033[01;34m\]\u@\h[\033[00m\]\$ '
-    PS1="cd \[\e[1;36m\]\w\[\e[m\] \[\e[1;49;33m\]\`parse_git_branch\`\[\e[m\]\n\[\e[1;32m\]  <] \u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[1;32m\]\h [> \[\e[m\]\[\e[37;40m\]\\[\e[m\]"
+# Alternatives to PS1, in a clumsy attempt to turn on and
+# off certain information.
+#
+# They can be "activated" via
+# ```bash
+#    # To remove the Date/Time from prompt
+#    export PS1=$PS1_TIMELESS
+#
+#    # To restore PS1 to the "full" prompt
+#    export PS1=$PS1_FULL
+# ```
+### Color Prompts!
+PS1_FULL="cd \[\e[1;36m\]\w\[\e[m\] \[\e[1;49;33m\]\`parse_git_branch\`\[\e[m\]  \[\e[38;5;236m\]\`date +\"%a %Y-%m-%d %H:%M:%S %z %Z\\[\e[m\]\"\`\n\[\e[1;32m\]  <] \u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[1;32m\]\h [> \[\e[m\]\[\e[37;40m\]\\[\e[m\]"
 
+PS1_TIMELESS="cd \[\e[1;36m\]\w\[\e[m\] \[\e[1;49;33m\]\`parse_git_branch\`\[\e[m\]\n\[\e[1;32m\]  <] \u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[1;32m\]\h [> \[\e[m\]\[\e[37;40m\]\\[\e[m\]"
+
+### BW Prompts!
+PS1_BW_SIMPLE='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
+PS1_BW_FULL="cd \w \`parse_git_branch\`  \`date +\"%a %Y-%m-%d %H:%M:%S %z %Z\"\`\n  <] \u@\h [> "
+
+PS1_BW_TIMELESS="cd \w \`parse_git_branch\` \n  <] \u@\h [> "
+
+
+if [ "$color_prompt" = yes ]; then
+    PS1=$PS1_FULL
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1=$PS1_BW_FULL
 fi
 unset color_prompt force_color_prompt
 
@@ -159,14 +180,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# activate NixOS (if I have it!)
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
-	source ~/.nix-profile/etc/profile.d/nix.sh
-fi
+### TODO:  CONSIDER LOADING local configuration from here!
+## activate NixOS (if I have it!)
+#if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+#	source ~/.nix-profile/etc/profile.d/nix.sh
+#fi
 
 export NIXPROMPT="\[\e[1;31m\]{\e[1;49;33m\]nix-env\[\e[1;31m\]} $PS1"
 
-
-
-
-
+# since I don't particularly want any command line program to launch
+# websites willy-nilly:
+export BROWSER=none

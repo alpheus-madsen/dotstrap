@@ -9,6 +9,8 @@ Change Settings:
 
 4. (Consider) Settings -> Show Advanced Settings -> System -> Uncheck "Continue running background apps when Chromium is closed"
 
+5. (Consider) Settings -> Performarce -> Memory Saver -> On  and add certain websites (most likely for Slack, etc) to the "always keep active" list
+
 Check other settings to see if they are to my liking...
 
 
@@ -22,5 +24,5 @@ Apps -> Search for "AdBlock Plus"
 Apps -> Search for "Clear Cache" (by Benjamin Bojko)
 
 Apps -> Search for AutoplayStopper (to stop video autoplay)
-     -> blacklist YouTube and LinkedIn
+     -> blacklist https://youtube.com and https://linkedin.com
      -> don't whitelist:  some Conferencing calls require autoplay
