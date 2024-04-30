@@ -1,106 +1,110 @@
 set nocompatible
 set encoding=utf-8
 
-""" Let's auto-install NeoBundle if it isn't already installed...
+""" Let's auto-install Vim-Plug if it isn't already installed...
 "
 " (I figure that this is the best thing to do, since I want to
 " automate my Vim configuration!)
 "
-" Taken from http://www.reddit.com/r/vim/comments/27nnsz/top_shortcuts_commands_configuration_for_vim/ci3sp5e
+" Taken from https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 "
+" (Note:  I used to use NeoBundle, but it's no longer maintained!)
 "
-filetype off
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  if !isdirectory(expand('~/.vim/bundle/neobundle.vim'))
-    echo "Installing NeoBundle\n"
-    silent execute '!mkdir -p ~/.vim/bundle'
-    silent execute '!git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim'
-  endif
+" For a tutorial on Vim-Plug, see https://github.com/junegunn/vim-plug/wiki/tutorial
+"
+" A quick summary of commands:
+"
+"     :PlugInstall          " Installs plugins
+"     :PlugStatus           " Check status of plugins
+"     :PlugUpdate           " Update plugins; review changes by pressing 'D'
+"     :PlugDiff             " Review changes of plugins if 'D' is skipped;
+"                             review each change and press 'x' to roll back a particular change
+"     :PlugClean            " After deleting/commenting out plugins to remove them;
+"                           " restart Vim or ':source ~/.vimrc' first, though
+"     :PlugUpgrade          " Upgrade vim-plug itself
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+	echo "Installing Vim-Plug\n"
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch "Shougo/neobundle.vim"
+
+call plug#begin()
 
 """ .... plugins, such as ....
-NeoBundle "myusuf3/numbers.vim"             " Toggle between absolute and relative line numbers.
-NeoBundle "dhruvasagar/vim-zoom"            " <C-W> m for zooming in/out of split windows
-
+Plug 'myusuf3/numbers.vim'             " Toggle between absolute and relative line numbers.
+Plug 'dhruvasagar/vim-zoom'            " <C-W> m for zooming in/out of split windows
 
 """ Smart Tabs -- NOTICE:  This DOESN'T QUITE WORK!  It uses tabs at the
 """ beginning of lines, and spaces everywhere else...which isn't quite true
 """ smart-tabs...but I might have to figure out how to fix it myself...
 """ Also, it doesn't seem to respect tabstop after text (for column aligning...)
-"NeoBundle "vim-scripts/Smart-Tabs"          " Smart Tab support! (Depricated)
-NeoBundle "Thyrum/vim-stabs"                " Smart Tab support!
-NeoBundle "tpope/vim-surround"              " For dealing with 'surroundings'!  Parens, XML, etc.
-NeoBundle "tpope/vim-repeat"                " So that . would work nicely with vim-surround
-NeoBundle "tmhedberg/matchit"               " To use % on HTML/XML, LaTeX, etc...
-NeoBundle "Townk/vim-autoclose"             " Autoclose brackets
-"NeoBundle "vim-scripts/closetag.vim"        " Close HTML/XML tags with ^_
-NeoBundle "alvan/vim-closetag"              " Close HTML/XML tags with ^_
+"Plug 'vim-scripts/Smart-Tabs'          " Smart Tab support! (Depricated)
+Plug 'Thyrum/vim-stabs'                " Smart Tab support!
+Plug 'tpope/vim-surround'              " For dealing with 'surroundings'!  Parens, XML, etc.
+Plug 'tpope/vim-repeat'                " So that . would work nicely with vim-surround
+Plug 'tmhedberg/matchit'               " To use % on HTML/XML, LaTeX, etc...
+Plug 'Townk/vim-autoclose'             " Autoclose brackets
+"Plug 'vim-scripts/closetag.vim'        " Close HTML/XML tags with ^_
+Plug 'alvan/vim-closetag'              " Close HTML/XML tags with ^_
 
-""" NeoBundle "tpope/vim-speeddating"       " Adjust dates and times in a natural way...
-""" NeoBundle "tpope/vim-commentary"        " Comment and Uncomment code.
-""" NeoBundle "tpope/vim-unimpaired"        " Handy bracket mappings.
-NeoBundle "vim-scripts/word_complete.vim"   " For word completion
+""" Plug 'tpope/vim-speeddating'       " Adjust dates and times in a natural way...
+""" Plug 'tpope/vim-commentary'        " Comment and Uncomment code.
+""" Plug 'tpope/vim-unimpaired'        " Handy bracket mappings.
+Plug 'vim-scripts/word_complete.vim'   " For word completion
 
 """ File Navigation plugins; most of them augment NERDTree
-" NeoBundle "kien/ctrlp.vim"                  " For filename searching
-" NeoBundle "junegunn/fzf.vim"                " For filename searching
+" Plug 'kien/ctrlp.vim'                  " For filename searching
+" Plug 'junegunn/fzf.vim'                " For filename searching
 
-NeoBundle "preservim/nerdtree"                      " For filesystem navigating
-NeoBundle "Xuyuanp/nerdtree-git-plugin"             " Git highlights for NERDTree
-NeoBundle "ryanoasis/vim-devicons"                  " Icons for Vim Plugins
-NeoBundle "tiagofumo/vim-nerdtree-syntax-highlight" " Syntax highlighting for files
-NeoBundle "scrooloose/nerdtree-project-plugin"      " Save NERDTree State
-NeoBundle "PhilRunninger/nerdtree-buffer-ops"       " Highilght and Close Buffers from NERDTree
-NeoBundle "PhilRunninger/nerdtree-visual-selection" " Visual Selection for NERDTree
+Plug 'preservim/nerdtree'                      " For filesystem navigating
+Plug 'Xuyuanp/nerdtree-git-plugin'             " Git highlights for NERDTree
+Plug 'ryanoasis/vim-devicons'                  " Icons for Vim Plugins
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting for files
+" Plug 'scrooloose/nerdtree-project-plugin'      " Save NERDTree State -- disabled due to weird error -- revisit this!
+Plug 'PhilRunninger/nerdtree-buffer-ops'       " Highilght and Close Buffers from NERDTree
+Plug 'PhilRunninger/nerdtree-visual-selection' " Visual Selection for NERDTree
 
 """ It would be nice to select buffers, too!
-NeoBundle "jlanzarotta/bufexplorer"                 " Visual Selection for buffers
+Plug 'jlanzarotta/bufexplorer'                 " Visual Selection for buffers
 
-""" NeoBundle "scrooloose/nerdcommenter"    " Comment and Uncomment code.
-""" NeoBundle "scrooloose/syntastic"        " Syntax Checking
-""" NeoBundle "Shougo/neocomplcache.vim"    " Neo-completion with cache
-""" NeoBundle "Shougo/neocomplete.vim"      " Neo-completion with cache, requires Lua
+""" Plug 'scrooloose/nerdcommenter'    " Comment and Uncomment code.
+""" Plug 'scrooloose/syntastic'        " Syntax Checking
+""" Plug 'Shougo/neocomplcache.vim'    " Neo-completion with cache
+""" Plug 'Shougo/neocomplete.vim'      " Neo-completion with cache, requires Lua
 """ NOTE:  (tagbar, easytags) requires installing Exuberant Ctags.
 
-""" NeoBundle "xolox/vim-misc"                  " Miscellaneous things -- required by vim-easytags
-""" NeoBundle "majutsushi/tagbar"               " Class outline viewer
-""" NeoBundle "xolox/vim-easytags"              " Automated tag generation
+""" Plug 'xolox/vim-misc'                  " Miscellaneous things -- required by vim-easytags
+""" Plug 'majutsushi/tagbar'               " Class outline viewer
+""" Plug 'xolox/vim-easytags'              " Automated tag generation
 
-""" NeoBundle "Lokaltog/vim-easymotion"     " Motion on speed...
-""" NeoBundle "vim-tmux-navigator"          " Seemless window navigation between Vim and Tmux
-NeoBundle "mbbill/undotree"                 " Undo Tree Goodness!
-NeoBundle "airblade/vim-gitgutter"          " Show Git changes on the side...
-NeoBundle "tpope/vim-obsession"             " Automatically save and restore sessions!
+""" Plug 'Lokaltog/vim-easymotion'     " Motion on speed...
+""" Plug 'vim-tmux-navigator'          " Seemless window navigation between Vim and Tmux
+Plug 'mbbill/undotree'                 " Undo Tree Goodness!
+Plug 'airblade/vim-gitgutter'          " Show Git changes on the side...
+Plug 'tpope/vim-obsession'             " Automatically save and restore sessions!
 
-NeoBundle "christoomey/vim-tmux-navigator"  " For seamlessly using <c-{ijkl/}> for navigating vim/tmux splits
+Plug 'christoomey/vim-tmux-navigator'  " For seamlessly using <c-{ijkl/}> for navigating vim/tmux splits
 
-NeoBundle "leafgarland/typescript-vim"      " Syntax highlighting for ts files (typescript)
-NeoBundle "ianks/vim-tsx"                   " Syntax highlighting for tsx files (ts/xml hybrids)
-NeoBundle "LnL7/vim-nix"                    " Syntax highlighting for Nix files
+Plug 'leafgarland/typescript-vim'      " Syntax highlighting for ts files (typescript)
+Plug 'ianks/vim-tsx'                   " Syntax highlighting for tsx files (ts/xml hybrids)
+Plug 'LnL7/vim-nix'                    " Syntax highlighting for Nix files
 
-""" NeoBundle "joker1007/vim-markdown-quote-syntax"    " Highlighting code snippets in MarkDown files
-NeoBundle "godlygeek/tabular"               " Pre-requisite for vim-markdown
-NeoBundle "plasticboy/vim-markdown"         " Syntax highlighting for markdown, including code snippets
+""" Plug 'joker1007/vim-markdown-quote-syntax'    " Highlighting code snippets in MarkDown files
+Plug 'godlygeek/tabular'               " Pre-requisite for vim-markdown
+Plug 'plasticboy/vim-markdown'         " Syntax highlighting for markdown, including code snippets
 
-NeoBundle "mechatroner/rainbow_csv"         " To work with CSV files
+Plug 'mechatroner/rainbow_csv'         " To work with CSV files
 
 
-NeoBundle "uguu-org/vim-matrix-screensaver" " Vim Matrix 'screensaver'
+Plug 'uguu-org/vim-matrix-screensaver' " Vim Matrix 'screensaver'
 
 
 """ For folding vertical columns
 """ Unfortunately, this can overwhelm Vim; it can sometimes be useful, though...
-""" NeoBundle "google/vim-maktaba"              " Plugin dev library for foldcol
-""" NeoBundle "paulhybryant/foldcol"            " Column folding via <c-v> and :VFoldCol
-
-NeoBundleCheck
-call neobundle#end()
-filetype plugin indent on
-
-syntax on
+""" Plug 'google/vim-maktaba'              " Plugin dev library for foldcol
+""" Plug 'paulhybryant/foldcol'            " Column folding via <c-v> and :VFoldCol
+call plug#end()
 
 
 """ Settings for vim-zoom
