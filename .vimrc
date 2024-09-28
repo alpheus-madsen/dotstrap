@@ -203,7 +203,8 @@ set foldenable                   " Auto fold code
 
 " I'm always setting these things anyway:
 set list                         " Show unusual whitespace
-set nowrapscan                   " Don't wrap around
+set nowrapscan                   " Don't wrap searches around
+set wrap linebreak               " wrap and break lines at whitespace
 
 " To enable block selection even for blank/short lines
 set virtualedit+=block
@@ -223,4 +224,25 @@ au BufNewFile,BufRead *.txt set filetype=markdown
 
 " Both 'ls' and 'buffers' list current buffers, but it's far more natural
 " to abbreviate 'buffers' as 'bs' and not as 'ls'.  Hence...
-cnoreabbrev bs buffers
+" cnoreabbrev bs buffers    " This is somewhat outdated now that the bufexplorer plugin has been installed.
+"
+" Note that these are deliberately reversed -- I already use "bs" naturally
+" for buffers, and I prefer the horizontal split over the vertical -- but I
+" still want vertical to be an option, too!
+cnoreabbrev bs :BufExplorerHorizontalSplit<CR>
+cnoreabbrev bv :BufExplorerVerticalSplit<CR>
+"
+" With bufexplorer, you can quickly and easily switch between buffers by using the one of
+" the default public interfaces:
+"
+"    \<Leader\>be normal open
+"    \<Leader\>bt toggle open / close
+"    \<Leader\>bs force horizontal split open
+"    \<Leader\>bv force vertical split open
+"
+" Once the bufexplorer window is open you can use the normal movement keys (hjkl) to move
+" around and then use <Enter> or <Left-Mouse-Click> to select the buffer you would like to
+" open. If you would like to have the selected buffer opened in a new tab, simply press
+" either <Shift-Enter> or t. Please note that when opening a buffer in a tab, that if the
+" buffer is already in another tab, bufexplorer can switch to that tab automatically for
+" you if you would like. More about that in the supplied VIM help.
